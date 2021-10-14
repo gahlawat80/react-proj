@@ -1,9 +1,9 @@
 import React from 'react';
 import {Card, CardImg, CardImgOverlay, CardTitle} from 'reactstrap';
 
-function RenderCampsiteCard({site, onClick}){
+function RenderCampsiteCard({site}){
     return(
-        <Card onClick={()=>onClick(site.id)}>
+        <Card >
             <CardImg width="100%" src={site.image} alt="nucamp site image" />
             <CardImgOverlay>
                 <CardTitle>{site.name}</CardTitle>
@@ -12,11 +12,11 @@ function RenderCampsiteCard({site, onClick}){
     );
 }
 
-function Directory({campsites, onClick}){
+function Directory({campsites}){
         const directories = campsites.map(site =>{
             return (
                 <div className="col-md-5 m-1" key={site.id}>
-                    <RenderCampsiteCard site={site} onClick={onClick}/>
+                    <RenderCampsiteCard site={site}/>
                 </div>
             );
         })
