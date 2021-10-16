@@ -3,11 +3,12 @@ import {Card,CardImg,CardBody,CardTitle,CardText} from 'reactstrap';
 
 function CampsiteInfo(props){
     if(props.campsite){
+        console.log(props.campsite)
         return(
             <div className="container">
                 <div className="row">
                     {RenderCampsite(props.campsite)}
-                    {RenderComments(props.campsite.comments)}
+                    {RenderComments(props.comments)}
                 </div>
             </div>
             );
