@@ -2,12 +2,13 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderCampsiteCard({site}){
     return(
         <Card >
             <Link to={`/directory/${site.id}`}>
-                <CardImg width="100%" src={site.image} alt="nucamp site image" />
+                <CardImg width="100%" src={baseUrl + site.image} alt={site.name} />
                 <CardImgOverlay>
                     <CardTitle>{site.name}</CardTitle>
                 </CardImgOverlay>

@@ -1,13 +1,21 @@
-import {COMMENTS} from '../shared/comments';
+
+import { actionTypes } from 'react-redux-form';
 import * as ActionTypes from './ActionTypes';
 
-export const Comments = (state=COMMENTS,action)=>{
+export const Comments = (state={
+    errMess: null,
+    comments: []
+},action)=>{
     switch(action.type){
         case ActionTypes.ADD_COMMENT:
             const comment = action.payload;
             comment.id = state.length;
             comment.date = new Date().toISOString();
             return state.concat(comment);
+        case actionTypes.ADD_COMMENTS:
+            return {...state,errMess:null,comments:action.payload}
+        case ActionTypes.COMMENTS_FAILED:
+            return {...state, errMess: action.payload};
         default:
             return state;
     }

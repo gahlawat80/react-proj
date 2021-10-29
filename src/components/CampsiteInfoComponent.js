@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem, Button, 
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 function CampsiteInfo(props){
     if (props.isLoading) {
@@ -83,7 +84,7 @@ function RenderComments({comments, addComment, campsiteId}) {
         return(
             <div className="col-md-5 m-1">
                 <Card>
-                    <CardImg top src={campsite.image} alt={campsite.name}/>
+                    <CardImg top src={baseUrl + campsite.image} alt={campsite.name} />
                     <CardBody>
                         <CardText>{campsite.description}</CardText>
                         
