@@ -43,7 +43,7 @@ function CampsiteInfo(props){
                     {RenderCampsite(props.campsite)}
                     <RenderComments 
                         comments={props.comments}
-                        addComment={props.addComment}
+                        postComment={props.postComment}
                         campsiteId={props.campsite.id}
                     />
                 </div>
@@ -57,7 +57,7 @@ function CampsiteInfo(props){
     
 }
 
-function RenderComments({comments, addComment, campsiteId}) {
+function RenderComments({comments, postComment, campsiteId}) {
         
         if(comments){
             //console.log(comments);
@@ -74,7 +74,7 @@ function RenderComments({comments, addComment, campsiteId}) {
                         )
                         //console.log(comment.text, comment.author, new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date))))
                     })}
-                   <CommentForm campsiteId={campsiteId} addComment={addComment} />
+                   <CommentForm campsiteId={campsiteId} postComment={postComment} />
                 </div>
             );
         }
@@ -115,7 +115,7 @@ function RenderComments({comments, addComment, campsiteId}) {
         }
         handleSubmit(values) {
             this.toggleModal();
-            this.props.addComment(this.props.campsiteId, values.rating, values.author, values.text);
+            this.props.postComment(this.props.campsiteId, values.rating, values.author, values.text);
         }
         render(){
             return( 
